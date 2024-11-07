@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.lsposed.lsparanoid'
+}
+
+lsparanoid {
+    seed = null
+    global = true
+    includeDependencies = true
+    variantFilter = { true }
+}
+
+android {
+    namespace 'zip.latestfile.localchat'
+    compileSdk 35
+    //noinspection GrDeprecatedAPIUsage
+    buildToolsVersion "35.0.0"
+
+    ndkVersion "27.0.12077973"
+
+    defaultConfig {
+        applicationId "zip.latestfile.localchat"
+        minSdk 21
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables.useSupportLibrary true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DBUILD_JNI=TRUE", "-DBUILD_FOR_ANDROID=TRUE", "-DANDROID_STL=c++_static", "-DMNN_OPENCL=ON"
+                abiFilters 'arm64-v8a'
+            }
+        }
+
+        //noinspection ChromeOsAbiSupport
+        ndk.abiFilters 'arm64-v8a'
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/jni/CMakeLists.txt')
+        }
+    }
+    sourceSets.main {
+        java.srcDirs += 'src/main/kotlin'
+        jniLibs.srcDirs += 'libs'
+    }
+    buildTypes.release {
+        minifyEnabled true
+        shrinkResources true
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+    kotlinOptions {
+        jvmTarget = '21'
+    }
+    buildFeatures {
+        buildConfig = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.15-dev-k1.9.25-bffbec61a14'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+    //noinspection GradleDynamicVersion
+    implementation 'com.google.android.material:material:+'
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.core:core-ktx:+'
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.activity:activity-compose:+'
+    //noinspection GradleDynamicVersion
+    implementation platform('androidx.compose:compose-bom:+')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    //noinspection GradleDynamicVersion
+    implementation 'com.github.jeziellago:compose-markdown:+'
+}

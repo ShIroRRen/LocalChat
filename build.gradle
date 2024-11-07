@@ -1,0 +1,20 @@
+buildscript {
+    repositories {
+        google()
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://androidx.dev/storage/compose-compiler/repository" }
+    }
+    dependencies {
+        //noinspection AndroidGradlePluginVersion
+        classpath 'com.android.tools.build:gradle:8.6.0-alpha07'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25'
+        //noinspection GradleDependency
+        classpath 'org.lsposed.lsparanoid:org.lsposed.lsparanoid.gradle.plugin:0.5.2'
+    }
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+}

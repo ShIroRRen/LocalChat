@@ -1,0 +1,3 @@
+[submodule "app/src/main/jni/mnn-llm"]
+	path = app/src/main/jni/mnn-llm
+	url = https://github.com/wangzhaode/mnn-llm.git
