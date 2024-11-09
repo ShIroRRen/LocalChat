@@ -1,4 +1,4 @@
-package zip.latestfile.localchat.ui.theme
+package work.niggergo.localchat.uicfg
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

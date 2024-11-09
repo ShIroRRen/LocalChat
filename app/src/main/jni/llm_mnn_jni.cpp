@@ -23,7 +23,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved) {
 }
 
-JNIEXPORT jboolean JNICALL Java_zip_latestfile_localchat_Chat_Init(JNIEnv* env, jobject thiz, jstring modelDir) {
+JNIEXPORT jboolean JNICALL Java_work_niggergo_localchat_Chat_Init(JNIEnv* env, jobject thiz, jstring modelDir) {
     const char* model_dir = env->GetStringUTFChars(modelDir, 0);
     if (!llm.get()) {
         llm.reset(Llm::createLLM(model_dir));
@@ -32,14 +32,14 @@ JNIEXPORT jboolean JNICALL Java_zip_latestfile_localchat_Chat_Init(JNIEnv* env, 
     return JNI_TRUE;
 }
 
-JNIEXPORT jboolean JNICALL Java_zip_latestfile_localchat_Chat_Ready(JNIEnv* env, jobject thiz) {
+JNIEXPORT jboolean JNICALL Java_work_niggergo_localchat_Chat_Ready(JNIEnv* env, jobject thiz) {
     if (llm.get()) {
         return JNI_TRUE;
     }
     return JNI_FALSE;
 }
 
-JNIEXPORT jstring JNICALL Java_zip_latestfile_localchat_Chat_Submit(JNIEnv* env, jobject thiz, jstring inputStr) {
+JNIEXPORT jstring JNICALL Java_work_niggergo_localchat_Chat_Submit(JNIEnv* env, jobject thiz, jstring inputStr) {
     if (!llm.get()) {
         return env->NewStringUTF("Failed, Chat is not ready!");
     }
@@ -53,7 +53,7 @@ JNIEXPORT jstring JNICALL Java_zip_latestfile_localchat_Chat_Submit(JNIEnv* env,
     return result;
 }
 
-JNIEXPORT jstring JNICALL Java_zip_latestfile_localchat_Chat_HistoryChat(JNIEnv* env, jobject thiz, jstring input) {
+JNIEXPORT jstring JNICALL Java_work_niggergo_localchat_Chat_HistoryChat(JNIEnv* env, jobject thiz, jstring input) {
     if (!llm.get()) {
         return env->NewStringUTF("没有初始化，问什么问呐？");
     }
@@ -65,18 +65,18 @@ JNIEXPORT jstring JNICALL Java_zip_latestfile_localchat_Chat_HistoryChat(JNIEnv*
     return result;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_zip_latestfile_localchat_Chat_Response(JNIEnv* env, jobject thiz) {
+JNIEXPORT jbyteArray JNICALL Java_work_niggergo_localchat_Chat_Response(JNIEnv* env, jobject thiz) {
     auto len = response_buffer.str().size();
     jbyteArray res = env->NewByteArray(len);
     env->SetByteArrayRegion(res, 0, len, (const jbyte*)response_buffer.str().c_str());
     return res;
 }
 
-JNIEXPORT void JNICALL Java_zip_latestfile_localchat_Chat_Done(JNIEnv* env, jobject thiz) {
+JNIEXPORT void JNICALL Java_work_niggergo_localchat_Chat_Done(JNIEnv* env, jobject thiz) {
     response_buffer.str("");
 }
 
-JNIEXPORT void JNICALL Java_zip_latestfile_localchat_Chat_Reset(JNIEnv* env, jobject thiz) {
+JNIEXPORT void JNICALL Java_work_niggergo_localchat_Chat_Reset(JNIEnv* env, jobject thiz) {
     llm->reset();
 }
 

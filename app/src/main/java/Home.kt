@@ -1,4 +1,4 @@
-package zip.latestfile.localchat
+package work.niggergo.localchat
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.jeziellago.compose.markdowntext.MarkdownText
-import zip.latestfile.localchat.ui.theme.LocalChatTheme
+import work.niggergo.localchat.uicfg.LocalChatTheme
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream

@@ -1,4 +1,4 @@
-package zip.latestfile.localchat
+package work.niggergo.localchat
 
 import java.io.Serializable
 

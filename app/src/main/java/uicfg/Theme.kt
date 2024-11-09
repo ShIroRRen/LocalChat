@@ -1,4 +1,4 @@
-package zip.latestfile.localchat.ui.theme
+package work.niggergo.localchat.uicfg
 
 import android.annotation.SuppressLint
 import android.app.Activity
