@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(mnn-llm)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions -fno-stack-protector -O3 -fPIC -pipe -g0 -ffunction-sections -fdata-sections -fmerge-all-constants -fomit-frame-pointer -freroll-loops -funroll-loops -fsized-deallocation -fvisibility=hidden -fvisibility-inlines-hidden -fapprox-func -falign-functions -falign-loops -ffinite-loops -fshort-enums -finline-functions -finline-hint-functions -fjump-tables")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Oz")
 
 option(BUILD_FOR_ANDROID "Build for android whith mini memory mode." OFF)
 option(LLM_SUPPORT_VISION "Llm model support vision input." OFF)
@@ -34,7 +34,8 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/mnn-llm/include/
                     ${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN/include/
                     ${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN/tools/cv/include/
-                    ${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN/MNN/3rd_party/
+                    ${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN/3rd_party/
+                    ${CMAKE_CURRENT_LIST_DIR}/mnn-llm/MNN/tools/
                     )
 
 # source files

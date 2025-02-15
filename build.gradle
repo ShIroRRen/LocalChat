@@ -8,10 +8,13 @@ buildscript {
     }
     dependencies {
         //noinspection AndroidGradlePluginVersion
-        classpath 'com.android.tools.build:gradle:8.6.0-alpha07'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25'
-        //noinspection GradleDependency
-        classpath 'org.lsposed.lsparanoid:org.lsposed.lsparanoid.gradle.plugin:0.5.2'
+        classpath 'com.android.tools.build:gradle:8.8.0-alpha05'
+        //noinspection GradleDynamicVersion
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:+'
+        //noinspection GradleDynamicVersion
+        classpath 'org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:+'
+        //noinspection GradleDynamicVersion
+        classpath 'org.lsposed.lsplugin.resopt:org.lsposed.lsplugin.resopt.gradle.plugin:+'
     }
 }
 

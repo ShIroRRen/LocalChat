@@ -1,23 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'org.lsposed.lsparanoid'
-}
-
-lsparanoid {
-    seed = null
-    global = true
-    includeDependencies = true
-    variantFilter = { true }
+    id 'org.jetbrains.kotlin.plugin.compose'
+    id 'org.lsposed.lsplugin.resopt'
 }
 
 android {
     namespace 'work.niggergo.localchat'
     compileSdk 35
     //noinspection GrDeprecatedAPIUsage
-    buildToolsVersion "35.0.0"
+    buildToolsVersion "36.0.0-rc5"
 
-    ndkVersion "27.0.12077973"
+    ndkVersion "28.0.13004108"
 
     defaultConfig {
         applicationId "work.niggergo.localchat"
@@ -49,6 +43,7 @@ android {
         jniLibs.srcDirs += 'libs'
     }
     buildTypes.release {
+        signingConfig signingConfigs.debug
         minifyEnabled true
         shrinkResources true
         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -65,7 +60,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.5.15-dev-k1.9.25-bffbec61a14'
+        kotlinCompilerExtensionVersion '+'
     }
 }
 

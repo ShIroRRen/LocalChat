@@ -9,6 +9,8 @@
 
 #include "llm.hpp"
 
+using namespace MNN::Transformer;
+
 static std::vector<std::pair<std::string, std::string>> history;
 static std::unique_ptr<Llm> llm(nullptr);
 static std::stringstream response_buffer;
@@ -59,9 +61,15 @@ JNIEXPORT jstring JNICALL Java_work_niggergo_localchat_Chat_HistoryChat(JNIEnv* 
     }
     const char* input_str = env->GetStringUTFChars(input, 0);
     history.emplace_back(std::make_pair("user", input_str));
-    std::string assistant_str = llm->response(history);
-    history.emplace_back(std::make_pair("assistant", assistant_str));
-    jstring result = env->NewStringUTF(assistant_str.c_str());
+    std::ostringstream lineOs;
+    llm->response(history, &lineOs, nullptr, 1);
+    auto line = lineOs.str();
+    while (!llm->stoped()) {
+        llm->generate(1);
+        line = lineOs.str();
+    }
+    history.emplace_back(std::make_pair("assistant", line));
+    jstring result = env->NewStringUTF(line.c_str());
     return result;
 }
 
