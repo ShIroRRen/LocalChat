@@ -14,7 +14,7 @@ using namespace MNN::Transformer;
 
 static vector<pair<string, string>> history;
 static unique_ptr<Llm> llm(nullptr);
-//static stringstream response_buffer;
+// static stringstream response_buffer;
 
 extern "C"
 {
@@ -29,11 +29,14 @@ extern "C"
     {
     }
 
-    JNIEXPORT jboolean JNICALL Java_work_niggergo_localchat_Jni_Init(JNIEnv *env, jobject thiz, jstring modelDir)
+    JNIEXPORT jboolean JNICALL Java_work_niggergo_localchat_Jni_Init(JNIEnv *env, jobject thiz, jstring config)
     {
-        const char *model_dir = env->GetStringUTFChars(modelDir, 0);
         if (!llm.get())
-            llm.reset(Llm::createLLM(model_dir));
+        {
+            const char *config_str = env->GetStringUTFChars(config, 0);
+            llm.reset(Llm::createLLM(config_str));
+            env->ReleaseStringUTFChars(config, config_str);
+        }
         llm->load();
         return JNI_TRUE;
     }
@@ -71,7 +74,7 @@ extern "C"
 
     JNIEXPORT void JNICALL Java_work_niggergo_localchat_Jni_Done(JNIEnv *env, jobject thiz)
     {
-        //response_buffer.str("");
+        // response_buffer.str("");
     }
 
     JNIEXPORT void JNICALL Java_work_niggergo_localchat_Jni_Reset(JNIEnv *env, jobject thiz)
