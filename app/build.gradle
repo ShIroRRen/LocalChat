@@ -7,16 +7,16 @@ plugins {
 
 android {
     namespace 'work.niggergo.localchat'
-    compileSdk 35
+    compileSdk 36
     //noinspection GrDeprecatedAPIUsage
-    buildToolsVersion "36.0.0-rc5"
+    buildToolsVersion "36.0.0"
 
     ndkVersion "28.0.13004108"
 
     defaultConfig {
         applicationId "work.niggergo.localchat"
         minSdk 21
-        targetSdk 35
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
