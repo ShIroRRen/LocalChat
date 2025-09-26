@@ -2,6 +2,7 @@
 
 *.md text eol=lf
 *.mkd text eol=lf
+*.mdx text eol=lf
 
 *.sh text eol=lf
 *.rc text eol=lf

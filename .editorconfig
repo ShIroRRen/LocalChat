@@ -1,0 +1,50 @@
+[*]
+indent_size = 4
+indent_style = tab
+insert_final_newline = false
+max_line_length = 106
+trim_trailing_whitespace = true
+ij_continuation_indent_size = 8
+
+[{*.yml,*.yaml}]
+indent_size = 2
+indent_style = space
+
+[{*.md,*.mkd,*.mdx}]
+indent_size = 2
+indent_style = space
+
+[{*.kt,*.kts}]
+ij_kotlin_align_in_columns_case_branch = true
+ij_kotlin_align_multiline_extends_list = true
+ij_kotlin_allow_trailing_comma = false
+ij_kotlin_allow_trailing_comma_collection_literal_expression = false
+ij_kotlin_allow_trailing_comma_context_receiver_list = false
+ij_kotlin_allow_trailing_comma_destructuring_declaration = false
+ij_kotlin_allow_trailing_comma_function_literal = false
+ij_kotlin_allow_trailing_comma_indices = false
+ij_kotlin_allow_trailing_comma_on_call_site = false
+ij_kotlin_allow_trailing_comma_type_argument_list = false
+ij_kotlin_allow_trailing_comma_type_parameter_list = false
+ij_kotlin_allow_trailing_comma_value_argument_list = false
+ij_kotlin_allow_trailing_comma_value_parameter_list = false
+ij_kotlin_allow_trailing_comma_when_entry = false
+ij_kotlin_blank_lines_after_class_header = 0
+ij_kotlin_blank_lines_around_block_when_branches = 0
+ij_kotlin_blank_lines_before_declaration_with_comment_or_annotation_on_separate_line = 1
+ij_kotlin_block_comment_add_space = true
+ij_kotlin_block_comment_at_first_column = true
+ij_kotlin_import_nested_classes = true
+ij_kotlin_keep_blank_lines_before_right_brace = 0
+ij_kotlin_keep_blank_lines_in_code = 1
+ij_kotlin_keep_blank_lines_in_declarations = 1
+ij_kotlin_keep_first_column_comment = true
+ij_kotlin_keep_indents_on_empty_lines = false
+ij_kotlin_keep_line_breaks = true
+ij_kotlin_line_comment_add_space = true
+ij_kotlin_line_comment_add_space_on_reformat = true
+ij_kotlin_line_comment_at_first_column = true
+ij_kotlin_method_parameters_new_line_after_left_paren = true
+ij_kotlin_method_parameters_right_paren_on_new_line = true
+ij_kotlin_name_count_to_use_star_import = 3
+ij_kotlin_name_count_to_use_star_import_for_members = 3
