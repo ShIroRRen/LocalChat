@@ -1,0 +1,42 @@
+comments:
+  active: false
+complexity:
+  active: false
+  ReplaceSafeCallChainWithRun:
+    active: true
+  StringLiteralDuplication:
+    active: true
+coroutines:
+  active: true
+empty-blocks:
+  active: true
+exceptions:
+  active: true
+naming:
+  active: false
+performance:
+  active: true
+potential-bugs:
+  active: true
+style:
+  active: true
+  LoopWithTooManyJumpStatements:
+    active: false
+  MagicNumber:
+    active: false
+  MaxLineLength:
+    active: false
+  ThrowsCount:
+    active: false
+  WildcardImport:
+    active: false
+Compose:
+  active: true
+  ComposableParamOrder:
+    active: false
+  Material2:
+    active: true
+  ModifierMissing:
+    active: false
+  ModifierWithoutDefault:
+    active: false

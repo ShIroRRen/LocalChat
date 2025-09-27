@@ -1,16 +1,25 @@
 package work.niggergo.localchat
 
-import java.io.Serializable
+import dalvik.annotation.optimization.FastNative
 
-class Jni : Serializable {
-  external fun Init(modelDir: String): Boolean
-  external fun HistoryChat(system: String, input: String): String
-  external fun Done()
-  external fun Reset()
-  
-  companion object {
-    init {
-      System.loadLibrary("nga-chat")
-    }
-  }
+object Jni {
+	@JvmStatic
+	@FastNative
+	external fun init(modelDir: String): Boolean
+
+	@JvmStatic
+	@FastNative
+	external fun historyChat(system: String, input: String): String
+
+	@JvmStatic
+	@FastNative
+	external fun done()
+
+	@JvmStatic
+	@FastNative
+	external fun reset()
+
+	init {
+		System.loadLibrary("nga-chat")
+	}
 }
