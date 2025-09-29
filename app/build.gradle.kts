@@ -15,7 +15,7 @@ kotlin.compilerOptions.jvmTarget = JvmTarget.JVM_24
 android {
 	namespace = "work.niggergo.localchat"
 	compileSdk = 36
-	buildToolsVersion = "36.0.0"
+	buildToolsVersion = "36.1.0"
 	ndkVersion = "29.0.14033849"
 
 	defaultConfig {
